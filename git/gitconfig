@@ -1,0 +1,53 @@
+[init]
+    defaultBranch = main
+
+[alias]
+    autosquash = rebase -i --autosquash
+    amend = commit --amend --no-edit
+    diffs = diff --staged
+    ff = merge --ff-only
+    fix = commit --fixup
+    pullrb = pull --rebase
+    rbi = rebase -i
+    reword = commit --amend
+    save = commit -a -m "save"
+    unstage = restore --staged
+
+[user]
+    name = John Gravois
+    email = jgravois@compiler.la
+
+[github]
+    user = jgravois
+
+[core]
+    editor = code --wait
+    excludesfile = ~/.gitignore_global
+    filemode = false
+    fsMonitor = false
+    symlinks = true
+    untrackedCache = true
+
+[color]
+    diff = auto
+    ui = auto
+
+[color "diff"]
+    frag = magenta
+    old = red bold
+    new = green bold
+
+[grep]
+    lineNumber = true
+
+[help]
+    autocorrect = 1
+
+[fetch]
+    prune = true
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoStash = true

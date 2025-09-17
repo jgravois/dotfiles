@@ -1,0 +1,17 @@
+- defaults:
+    link:
+      create: true
+      force: true
+      relink: true
+    shell:
+      stderr: true
+      stdout: true
+
+- clean: ["~"]
+
+- link:
+    ~/.shell:
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
