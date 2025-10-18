@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.shell/aliases.sh
 
 # not sure why, but i was seeing persistent nags to re-enter my ssh password even after
-# storing in my keychain: https://stackoverflow.com/a/10032655
-# without this line
+# storing in my keychain: https://stackoverflow.com/a/10032655 without this line
 ssh-add --apple-load-keychain -q
+
+export PATH="/opt/homebrew/bin:$PATH"
