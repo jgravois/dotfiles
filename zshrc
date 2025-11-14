@@ -113,3 +113,5 @@ source ~/.shell/aliases.sh
 ssh-add --apple-load-keychain -q
 
 export PATH="/opt/homebrew/bin:$PATH"
+
+eval "$(mise activate zsh)"
