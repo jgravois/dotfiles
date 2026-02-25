@@ -114,4 +114,24 @@ ssh-add --apple-load-keychain -q
 
 export PATH="/opt/homebrew/bin:$PATH"
 
+# assumes mise installed via homebrew
+# ~/.config/mise/config.toml for details about the packages it manages
 eval "$(mise activate zsh)"
+
+# assumes ffmpeg and gifsicle installed via homebrew
+function mov_to_gif() {
+  ffmpeg -i "$1" -pix_fmt rgb8 -r 10 "$2" && gifsicle -O3 "$2" -o "$2"
+}
+
+# makes Opt+delete work like Ctrl+W
+bind '"\e\C-?": backward-kill-word'
+
+# /var/run which is a runtime dir. this ensures the symlink is recreated if ever not found
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+  docker_sock="/Users/john/.colima/default/docker.sock"
+  if [ ! -e "$docker_sock" ]; then
+    sudo ln -s $docker_sock /var/run/docker.sock
+  fi
+  export DOCKER_HOST="unix://$docker_sock"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
