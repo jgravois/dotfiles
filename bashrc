@@ -2,14 +2,14 @@
 
 echo "loaded .bashrc"
 
+# Git completion
+source ~/.shell/git-completion.sh
+
 # Aliases
 source ~/.shell/aliases.sh
 
 # Custom prompt
 source ~/.shell/prompt.sh
-
-# Git completion
-source ~/.shell/git-completion.sh
 
 # Bash completion
 if [ -f /etc/bash_completion ]; then

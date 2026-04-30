@@ -19,14 +19,12 @@ alias mv='mv -i'
 alias gs="git switch"
 alias gsc="git switch -c"
 alias gsm="git switch main"
-alias gsma="git switch master"
 alias gst="git status"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gl="git log"
 alias gp="git pull"
 alias gpom="git pull origin main"
-alias gpoma="git pull origin master"
 alias gpoh="git push origin head"
 alias gf="git fetch --all"
 alias ga="git add ."
@@ -43,3 +41,14 @@ alias grc="git rebase --continue"
 alias grs="git rebase --skip"
 alias gcp="git cherry-pick"
 alias glg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Link to Git completion logic if we are actually in Bash and not Zsh
+if [ -n "$BASH_VERSION" ]; then
+    __git_complete gb _git_branch
+    __git_complete gbd _git_branch
+    __git_complete gco _git_checkout
+    __git_complete gl _git_log
+    __git_complete gp _git_pull
+    __git_complete gr _git_rebase
+    __git_complete gs _git_switch
+fi

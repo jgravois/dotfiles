@@ -123,12 +123,9 @@ function mov_to_gif() {
   ffmpeg -i "$1" -pix_fmt rgb8 -r 10 "$2" && gifsicle -O3 "$2" -o "$2"
 }
 
-# makes Opt+delete work like Ctrl+W
-bind '"\e\C-?": backward-kill-word'
-
 # /var/run which is a runtime dir. this ensures the symlink is recreated if ever not found
-if [[ "$OSTYPE" =~ "darwin" ]]; then
-  docker_sock="/Users/john/.colima/default/docker.sock"
+if [[ "$OSTYPE" =~ darwin* ]]; then
+  local docker_sock="$HOME/.colima/default/docker.sock"
   if [ ! -e "$docker_sock" ]; then
     sudo ln -s $docker_sock /var/run/docker.sock
   fi
