@@ -24,6 +24,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gl="git log"
 alias gp="git pull"
+alias gpo="git pull origin"
 alias gpom="git pull origin main"
 alias gpoh="git push origin head"
 alias gf="git fetch --all"
@@ -49,6 +50,7 @@ if [ -n "$BASH_VERSION" ]; then
     __git_complete gco _git_checkout
     __git_complete gl _git_log
     __git_complete gp _git_pull
+    __git_complete gpo _git_pull
     __git_complete gr _git_rebase
     __git_complete gs _git_switch
 fi
