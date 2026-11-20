@@ -122,15 +122,3 @@ eval "$(mise activate zsh)"
 function mov_to_gif() {
   ffmpeg -i "$1" -pix_fmt rgb8 -r 10 "$2" && gifsicle -O3 "$2" -o "$2"
 }
-
-# /var/run is a runtime dir. this ensures the symlink is recreated as needed
-if [[ "$OSTYPE" =~ darwin* ]]; then
-  local colima_sock="$HOME/.colima/default/docker.sock"
-  local docker_sock="/var/run/docker.sock"
-  if [ ! -e "$docker_sock" ]; then
-    echo "recreating docker.sock symlink to colima"
-    sudo ln -s $colima_sock $docker_sock
-  fi
-  export DOCKER_HOST="unix://$docker_sock"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
